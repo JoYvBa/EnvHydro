@@ -106,16 +106,6 @@ def hfbconvert(hfb, k_hfb):
     
     return hfb_data
 
-# Will not be included in the final version, if it is still there; oops
-def validate_hfb_data(hfb_data, nlay, nrow, ncol):
-    for entry in hfb_data:
-        layer, row1, col1, row2, col2, hfb = entry
-        if not (0 <= layer < nlay and 0 <= row1 < nrow and 0 <= col1 < ncol and 0 <= row2 < nrow and 0 <= col2 < ncol):
-            print(f"Out-of-bounds entry found: {entry}")
-            return False
-    return True
-
-
 def ghbconvert(ghb, k_ghb):
     '''
     Converts a 3D array with values for the conductivity of the head and conductivity
